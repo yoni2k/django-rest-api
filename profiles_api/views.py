@@ -4,6 +4,8 @@ from rest_framework import status #list of handy http status codes
 from profiles_api import serializers
 from rest_framework import viewsets
 from profiles_api import models
+from rest_framework.authentication import TokenAuthentication #for authenticating our users, creates token on login, passes on every request
+from profiles_api import permissions
 
 
 class HelloApiView(APIView):
@@ -112,3 +114,6 @@ class UserProfileViewSet(viewsets.ModelViewSet): #ModelViewSet is similar to Vie
 
     #ModelViewSet will add on it's own all actions provided by model and serializer
     queryset = models.UserProfile.objects.all()
+
+    authentication_classes = (TokenAuthentication,) #see token explanation in imports
+    permission_classes = (permissions.UpdateOwnProfile,)
