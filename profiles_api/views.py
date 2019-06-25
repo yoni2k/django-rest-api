@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status #list of handy http status codes
 from profiles_api import serializers
+from rest_framework import viewsets
 
 class HelloApiView(APIView):
     """ Test API View of Hello World """
@@ -53,3 +54,16 @@ class HelloApiView(APIView):
     def delete(self, request, pk=None):
         """  Handle deleting an object """
         return Response({'method' : 'DELETE'})
+
+
+class HelloViewSet(viewsets.ViewSet):
+    """ Test API ViewSet """
+
+    def list(self, request):
+        """ List all objects """
+        a_viewset = [
+            'Uses actions (list, create, retrieve, update, partial_update)',
+            'Automatically maps to URLs using Routers',
+            'Provides more functionality wiht less code',
+        ]
+        return Response({'message':'Hello!', 'a_viewset' : a_viewset})
