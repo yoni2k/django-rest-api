@@ -4,6 +4,8 @@ from rest_framework import status #list of handy http status codes
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication #for authenticating our users, creates token on login, passes on every request
 from rest_framework import filters
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 from profiles_api import serializers
 from profiles_api import models
@@ -123,3 +125,8 @@ class UserProfileViewSet(viewsets.ModelViewSet): #ModelViewSet is similar to Vie
     # adding ability to filter (by built in SearchFilter)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('name','email',) #search for a string in these fields
+
+class UserLoginApiView(ObtainAuthToken):
+    """ Handle creating user authentiation tokens """
+    #render it in all default views, by default other views add it, but ObtainAuthToken doesn't 
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
