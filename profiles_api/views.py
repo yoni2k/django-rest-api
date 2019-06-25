@@ -1,12 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status #list of handy http status codes
-from profiles_api import serializers
 from rest_framework import viewsets
-from profiles_api import models
 from rest_framework.authentication import TokenAuthentication #for authenticating our users, creates token on login, passes on every request
-from profiles_api import permissions
 
+from profiles_api import serializers
+from profiles_api import models
+from profiles_api import permissions
 
 class HelloApiView(APIView):
     """ Test API View of Hello World """
