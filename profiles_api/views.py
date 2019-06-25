@@ -6,7 +6,8 @@ from rest_framework.authentication import TokenAuthentication #for authenticatin
 from rest_framework import filters
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated #blocks unauthenticated users completely
+
 
 from profiles_api import serializers
 from profiles_api import models
@@ -139,7 +140,7 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
     queryset = models.ProfileFeedItem.objects.all() #all fields/objects will be managed
     permission_classes = (
         permissions.UpdateOwnStatus,
-        IsAuthenticatedOrReadOnly, #will make sure user must be authenticated
+        IsAuthenticated, #will make sure user must be authenticated
     )
 
     # overridding allows override/customize behavior of creating objects through ModelViewSet
