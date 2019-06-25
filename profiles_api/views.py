@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status #list of handy http status codes
 from profiles_api import serializers
 from rest_framework import viewsets
+from profiles_api import models
+
 
 class HelloApiView(APIView):
     """ Test API View of Hello World """
@@ -102,3 +104,11 @@ class HelloViewSet(viewsets.ViewSet):
     def destroy(self, request, pk=None):
         """ Handle destoying an object by it's ID """
         return Response({'http_method' : 'DELETE'})
+
+
+class UserProfileViewSet(viewsets.ModelViewSet): #ModelViewSet is similar to ViewSet with additional model functionality
+    """ Handle creating and updating user profiles """
+    serializer_class = serializers.UserProfileSerializer
+
+    #ModelViewSet will add on it's own all actions provided by model and serializer
+    queryset = models.UserProfile.objects.all()
