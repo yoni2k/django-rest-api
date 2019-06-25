@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status #list of handy http status codes
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication #for authenticating our users, creates token on login, passes on every request
+from rest_framework import filters
 
 from profiles_api import serializers
 from profiles_api import models
@@ -115,5 +116,10 @@ class UserProfileViewSet(viewsets.ModelViewSet): #ModelViewSet is similar to Vie
     #ModelViewSet will add on it's own all actions provided by model and serializer
     queryset = models.UserProfile.objects.all()
 
+    #add to check user authentication with token against the action the user is doing
     authentication_classes = (TokenAuthentication,) #see token explanation in imports
     permission_classes = (permissions.UpdateOwnProfile,)
+
+    # adding ability to filter (by built in SearchFilter)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name','email',) #search for a string in these fields
