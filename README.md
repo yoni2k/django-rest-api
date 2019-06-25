@@ -1,5 +1,7 @@
 # REST APIs with Django and Django REST frameworks - user and user status management
 
+Based on Udemy course https://www.udemy.com/django-python
+
 ## What types of APIs provides:
 * `/admin` - for adiministrations, having regular and admin users, being able to see different tables from admin API
 * `/profile` - for managing users (getting a list, getting specific one, adding, deleting, updating)
