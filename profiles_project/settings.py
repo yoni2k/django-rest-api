@@ -25,7 +25,7 @@ SECRET_KEY = 't63a0avhm(won_5)p6p-2$2!ygc)-1q#c)^v7u6i0*j=4-%^5$'
 # SECURITY WARNING: don't run with debug turned on in production!
 # This will return on error full stack with possibly secret info
 # Set only in production environment to 0, in non-production will default to 1 below
-DEBUG = bool(int(os.environment.get('DEBUG',1)))
+DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
 ALLOWED_HOSTS = []
 
