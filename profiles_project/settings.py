@@ -27,7 +27,10 @@ SECRET_KEY = 't63a0avhm(won_5)p6p-2$2!ygc)-1q#c)^v7u6i0*j=4-%^5$'
 # Set only in production environment to 0, in non-production will default to 1 below
 DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
-ALLOWED_HOSTS = []
+# security feature, hostnames that are allowed, adding here our specific server and local host
+ALLOWED_HOSTS = ['ec2-18-196-88-0.eu-central-1.compute.amazonaws.com',
+                '127.0.0.1'
+                ]
 
 
 # Application definition
