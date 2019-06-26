@@ -29,7 +29,8 @@ DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
 # security feature, hostnames that are allowed, adding here our specific server and local host
 ALLOWED_HOSTS = ['ec2-18-196-88-0.eu-central-1.compute.amazonaws.com',
-                '127.0.0.1'
+                '127.0.0.1',
+                'ec2-18-197-57-32.eu-central-1.compute.amazonaws.com', 
                 ]
 
 
