@@ -26,3 +26,4 @@ Based on Udemy course https://www.udemy.com/django-python
 * Working with Python PIP with requrements.txt prerequisites file
 * Working with Python in Atom IDE
 * Working with HTTP POST, PUT, GET, PATCH and DELETE methods
+* Deploying the server to AWS EC2 instance
