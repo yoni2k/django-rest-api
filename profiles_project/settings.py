@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't63a0avhm(won_5)p6p-2$2!ygc)-1q#c)^v7u6i0*j=4-%^5$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# This will return on error full stack with possibly secret info
+# Set only in production environment to 0, in non-production will default to 1 below
+DEBUG = bool(int(os.environment.get('DEBUG',1)))
 
 ALLOWED_HOSTS = []
 
@@ -124,3 +126,6 @@ STATIC_URL = '/static/'
 
 # use our defined user profile model instead of the default one
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+
+# location where Django will save all the static files when we run the collectstatic command
+STATIC_ROOT = 'static/'
