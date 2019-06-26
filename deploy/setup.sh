@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo 'Starting to run the script'
+echo "Starting to run the script"
 set -e
 
 # Github repo where the code is going to be copied from
