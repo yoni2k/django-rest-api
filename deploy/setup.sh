@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-echo "Starting to run the script"
+echo "Starting to run the script..."
 set -e
+echo "After set -e ..."
 
 # Github repo where the code is going to be copied from
 PROJECT_GIT_URL='https://github.com/yoni2k/django-rest-api.git'
