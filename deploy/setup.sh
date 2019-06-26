@@ -3,7 +3,7 @@ echo "Starting to run the script"
 set -e
 
 # Github repo where the code is going to be copied from
-PROJECT_GIT_URL='yoni2k/django-rest-api.git'
+PROJECT_GIT_URL='https://github.com/yoni2k/django-rest-api.git'
 
 # where on the server the clone of the server is going to be done
 PROJECT_BASE_PATH='/usr/local/apps/profiles-rest-api'
@@ -23,7 +23,7 @@ python3 -m venv $PROJECT_BASE_PATH/env
 
 # Install python packages
 $PROJECT_BASE_PATH/env/bin/pip install -r $PROJECT_BASE_PATH/requirements.txt
-#python daemond for running python code as a server
+# python daemond for running python code as a server
 $PROJECT_BASE_PATH/env/bin/pip install uwsgi==2.0.18
 
 # Run migrations and collectstatic
